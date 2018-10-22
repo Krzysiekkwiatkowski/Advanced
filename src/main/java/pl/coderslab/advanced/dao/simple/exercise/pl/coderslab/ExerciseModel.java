@@ -1,7 +1,7 @@
 package pl.coderslab.advanced.dao.simple.exercise.pl.coderslab;
 
 public interface ExerciseModel {
-    public int getId();
+    public Integer getId();
 
-    public void setId(int id);
+    public void setId(Integer id);
 }
