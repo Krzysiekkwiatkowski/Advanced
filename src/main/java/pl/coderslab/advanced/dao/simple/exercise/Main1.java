@@ -26,5 +26,24 @@ public class Main1 {
         if (firstElement != null) {
             groupDao.delete(firstElement);
         }
+
+        UserDao userDao = new UserDao();
+        User user = new User("Mistrze", "Michał", "Win");
+        userDao.save(user);
+
+        List<Model> users = userDao.loadAll();
+        for (Model model : users) {
+            User loadedUser = (User) model;
+            System.out.println(loadedUser.getGroup() + " " + loadedUser.getName() + " " + loadedUser.getSurname());
+        }
+        user.setGroup("Second group");
+        user.setName("Second name");
+        user.setSurname("Second surname");
+        userDao.save(user);
+
+        User firstUser = (User) userDao.loadById(1);
+        if (firstUser != null) {
+            userDao.delete(firstUser);
+        }
     }
 }
